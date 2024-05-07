@@ -1,24 +1,15 @@
 import { Link } from "react-router-dom";
 
 export default function Note({ note, categories, category}) {
-
-  //!Note Category works giving the category in a string
-  // console.log(note.category)
-
-  //?What's causing the undefined?
-  //!Updated Cat is an array of objects and no undefines
   const updatedCat = categories.slice(1)
+  // console.log(note.category)
   // console.log(updatedCat)
 
-
-  // !Logic for this is undefined
   const check = updatedCat.find((cat) => {
     return cat.name.toLowerCase() === note.category.toLowerCase()
   })
-  // console.log(check.color)
   
   const bg = check && check.color ? `bg-[${check.color}]` : "bg-red-100";
-  // console.log(bg)
 
 
   return (
@@ -33,7 +24,6 @@ export default function Note({ note, categories, category}) {
           {category.toUpperCase()}
         </span>
         <span
-        // Add Color Below bg-[${color}]
         className={`ml-2 inline-block h-3 w-3 rounded-full ${bg}`}
         ></span>
       </div>
